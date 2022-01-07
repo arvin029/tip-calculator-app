@@ -231,11 +231,12 @@ body {
     display: flex;
     flex-direction: column;
     margin-bottom: 50px;
+    padding: 30px;
   }
 
   .container .card .card-first-col {
     width: 100%;
-    margin: 10px;
+    margin: 0;
   }
 
   .container .card .card-first-col .tip-box svg {
@@ -271,14 +272,14 @@ body {
 
   .container .card .card-first-col .button-container {
     display: grid;
-    grid-template-columns: repeat(2, 50%);
+    grid-template-columns: repeat(2, 48%);
     grid-gap: 10px;
     margin-bottom: 15px;
   }
 
   .container .card .card-second-col {
     width: 100%;
-    margin: 5px;
+    margin: 0;
     padding: 20px;
   }
 
