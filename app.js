@@ -20,13 +20,16 @@ tips.forEach(tip => {
 
   // Add keyup event
   peopleCount.addEventListener('keyup', function(e) {
-    document.getElementById('totalAmount').textContent = tipAmount * e.target.value;
+    document.getElementById('totalAmount').textContent = '$' + tipAmount * e.target.value;
   })
 })
 
+// Event for custom field
 document.querySelector('.custom').addEventListener('keyup', function(e) {
   tipAmount = (e.target.value / 100) * bill.value;
   document.getElementById('tipAmount').textContent = tipAmount.toFixed(2);
+  // total amount fucntion call
+  showTotalAmount(tipAmount);
 })
 
 // Calculate Tip
@@ -39,12 +42,12 @@ function showTipAmount(calculate) {
 }
 // Show Total Amount
 function showTotalAmount(tipAmount) {
-  return document.getElementById('totalAmount').textContent = (tipAmount * peopleCount.value).toFixed(2);
+  return document.getElementById('totalAmount').textContent = '$' + (tipAmount * peopleCount.value).toFixed(2);
 }
 // Reset Event
 document.getElementById('reset').addEventListener('click', function() {
   // reset tip amount
-  document.getElementById('tipAmount').textContent = '0.00';
+  document.getElementById('tipAmount').textContent = '$0.00';
   // reset total amount
-  document.getElementById('totalAmount').innerHTML = '0.00';
+  document.getElementById('totalAmount').innerHTML = '$0.00';
 })
