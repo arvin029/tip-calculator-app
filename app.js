@@ -50,4 +50,10 @@ document.getElementById('reset').addEventListener('click', function() {
   document.getElementById('tipAmount').textContent = '$0.00';
   // reset total amount
   document.getElementById('totalAmount').innerHTML = '$0.00';
+  // reset bill input field
+  bill.value = '';
+  // reset peouple count input field
+  peopleCount.value = '';
+  // reset custom input field
+  document.querySelector('.custom').value = '';
 })
