@@ -204,10 +204,11 @@ body {
 }
 
 .attribution {
+  display: block;
   font-size: 12px; text-align: center;
   color: hsl(185, 41%, 84%);
   background-color: hsl(186, 14%, 43%);
-  padding: 10px;
+  padding: 15px 5px;
 }
 
 .attribution a { 
@@ -272,6 +273,6 @@ body {
   }
 
   .attribution { 
-    margin-top: 100px;
+    margin-top: 150px;
   }
 }
