@@ -5,31 +5,35 @@ const peopleCount = document.getElementById('peopleCount');
 
 // Init variable for tip Amount
 let tipAmount = '';
+let calculate = '';
 
 // Loop tip button percentage
 tips.forEach(tip => {
   // add Event Listener for each button percentage
   tip.addEventListener('click', function() {
     // Calculate tip amount
-    let calculate = calculateResult(tip);
+    calculate = calculateResult(tip);
     // show tip amount
     tipAmount = showTipAmount(calculate)
     // show total amount tip
-    showTotalAmount(tipAmount);
+    showTotalAmount(calculate);
   })
 
-  // Add keyup event
-  peopleCount.addEventListener('keyup', function(e) {
-    document.getElementById('totalAmount').textContent = '$' + tipAmount * e.target.value;
-  })
+})
+
+// Add keyup event for number of people input field
+peopleCount.addEventListener('keyup', function() {
+  showTotalAmount(calculate);
 })
 
 // Event for custom field
 document.querySelector('.custom').addEventListener('keyup', function(e) {
-  tipAmount = (e.target.value / 100) * bill.value;
-  document.getElementById('tipAmount').textContent = tipAmount.toFixed(2);
-  // total amount fucntion call
-  showTotalAmount(tipAmount);
+  // Calculate custom percentage
+  calculate = (e.target.value / 100) * bill.value;
+  // Tip amount
+  showTipAmount(calculate)
+  // total amount function
+  showTotalAmount(calculate);
 })
 
 // Calculate Tip
@@ -38,11 +42,11 @@ function calculateResult(tip) {
 }
 // Show Tip Amount
 function showTipAmount(calculate) {
-  return document.getElementById('tipAmount').textContent = calculate.toFixed(2);
+  return document.getElementById('tipAmount').textContent = '$' + calculate.toFixed(2);
 }
 // Show Total Amount
-function showTotalAmount(tipAmount) {
-  return document.getElementById('totalAmount').textContent = '$' + (tipAmount * peopleCount.value).toFixed(2);
+function showTotalAmount(calculate) {
+  return document.getElementById('totalAmount').textContent = '$' + (calculate * peopleCount.value).toFixed(2);
 }
 // Reset Event
 document.getElementById('reset').addEventListener('click', function() {
